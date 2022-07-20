@@ -1,40 +1,45 @@
 <div class="cotenedor">
-    <button
-      mat-icon-button
-      class="icono"
-      aria-label="Example icon-button with a menu"
-    ></button>
-    <div class="form">
-        <input
-          type="text"
-          class="input"
-          placeholder="Search"
-          [(ngModel)]="filter"
-          name="filter"
-        />
-    </div>
-    <section class="seccion">
-      <div class="example-button-row">
-        <button mat-raised-button (click)="Data= Data">Everything</button>
-        <button mat-raised-button (click)="Data = vestidos">Dress</button>
-        <button mat-raised-button (click)="Data = abrigos">Coat</button>
-        <button mat-raised-button (click)="Data= pantalones">Pants</button>
-        <button mat-raised-button (click)="Data= zapatos">Shoes</button>
-      </div>
-    </section>
-
-    <div class="buscador">
-      <mat-card *ngFor="let store of listProduct | filtershop: filter" class="card">
-        <mat-card-content class="foto">
-          <img src = {{store.img}} class="img" routerLink="/home" />
-        </mat-card-content>
-        <mat-card-title-group>
-          <button mat-icon-button>
-            <mat-icon class = "add_shopping" >add_shopping_cart</mat-icon>
-          </button>
-          <mat-card-title class = "titulo" >{{ store.title }}</mat-card-title>
-          <mat-card-subtitle>{{ store.price }}</mat-card-subtitle>
-        </mat-card-title-group>
-      </mat-card>
-    </div>
+  <button
+    mat-icon-button
+    class="icono"
+    aria-label="Example icon-button with a menu"
+  ></button>
+  <div class="form">
+    <input
+      type="text"
+      class="input"
+      placeholder="Search"
+      [(ngModel)]="filter"
+      name="filter"
+    />
   </div>
+  <section class="seccion">
+    <div class="example-button-row">
+      <button mat-raised-button (click)="Data = Data">Everything</button>
+      <button mat-raised-button (click)="Data = vestidos">Dress</button>
+      <button mat-raised-button (click)="Data = abrigos">Coat</button>
+      <button mat-raised-button (click)="Data = pantalones">Pants</button>
+      <button mat-raised-button (click)="Data = zapatos">Shoes</button>
+    </div>
+  </section>
+
+  <div class="buscador">
+    <mat-card
+      *ngFor="let store of listProduct | filtershop: filter"
+      class="card"
+    >
+      <mat-card-content class="foto">
+        <img src="{{ store.img }}" class="img" routerLink="/home" />
+      </mat-card-content>
+      <mat-card-title-group>
+        <button mat-icon-button>
+          <mat-icon class="add_shopping" (click)="addCar">add_shopping_cart</mat-icon>
+        </button>
+        <mat-card-title class="titulo">{{ store.title }}</mat-card-title>
+        <mat-card-subtitle>{{
+          store.price | currency:'RD'
+        }}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card>
+  </div>
+</div>

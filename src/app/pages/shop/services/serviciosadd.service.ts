@@ -13,6 +13,7 @@ export class ServiciosaddService {
   constructor(private http: HttpClient) {
     this.getData;
   }
+  //añadir al carrito
   getData(shop: any) {
     console.log(shop);
     this.lista.push(shop);
@@ -23,5 +24,9 @@ export class ServiciosaddService {
   }
   getProducto(): Observable<any>{
     return this.http.get(this.url);
+  }
+
+  addProducto(){
+
   }
 }

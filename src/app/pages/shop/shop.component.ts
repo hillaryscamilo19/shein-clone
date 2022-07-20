@@ -39,5 +39,11 @@ export class ShopComponent implements OnInit {
       console.log(error);
     })
   }
+
+  addCar(shop: any): void{
+    this.productoservis.getData(shop);
+    localStorage.setItem('session', JSON.stringify(this.Data))
+    console.log(this.Data)
+  }
 }
 
